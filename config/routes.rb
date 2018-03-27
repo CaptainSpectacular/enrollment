@@ -3,5 +3,6 @@ Rails.application.routes.draw do
 
   resources :students do
     resources :addresses, only: %i[new create]
+    resources :courses, only: %i[index show]
   end
 end
