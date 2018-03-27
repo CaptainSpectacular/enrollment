@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-  before_action :set_student, only: %i[show update edit]
+  before_action :set_student, only: %i[show update edit destroy]
   def index
     render locals: { students: Student.all }
   end
@@ -20,6 +20,12 @@ class StudentsController < ApplicationController
 
   def edit
     render locals: { student: @student }
+  end
+
+  def destroy
+    @student.delete
+
+    redirect_to students_path
   end
 
   def update
