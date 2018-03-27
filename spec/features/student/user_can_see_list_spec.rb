@@ -14,5 +14,14 @@ describe 'user visits' do
       expect(page).to have_content(student3.name)
       expect(page).to have_link('Delete', count: 3)
     end
+
+    scenario 'they click on a student to view the show page' do
+      student1 = Student.create(name: 'Anakin Skywalker')
+
+      visit students_path
+      click_on student1.name
+
+      expect(current_path).to eq(student_path(student1))
+    end
   end
 end
