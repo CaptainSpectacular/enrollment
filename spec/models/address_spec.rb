@@ -49,4 +49,18 @@ describe Address do
       expect(address).to be_valid
     end
   end
+
+  describe 'associations' do
+    it 'belongs to student' do
+      student = Student.create(name: 'Anakin Skywalker')
+      address = student.addresses.create(description: 'Sand everywhere',
+                                         street: 'Sandy Drive',
+                                         city: 'Tatooine',
+                                         state: 'TA',
+                                         zip: 90543)
+
+      expect(address).to respond_to(:student)
+      expect(address.student).to eq(student)
+    end
+  end
 end
