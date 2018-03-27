@@ -22,5 +22,11 @@ describe Student do
 
       expect(student).to respond_to(:addresses)
     end
+
+    it 'has many courses' do
+      student = Student.create(name: 'Anakin Skywalker')
+
+      expect(student).to respond_to(:courses)
+    end
   end
 end

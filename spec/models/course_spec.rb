@@ -14,4 +14,12 @@ describe Course do
       expect(course).to be_valid
     end
   end
+
+  describe 'associations' do
+    it 'has many students' do
+      course = Course.new(name: 'Jedi Academy')
+
+      expect(course).to respond_to(:students)
+    end
+  end
 end
