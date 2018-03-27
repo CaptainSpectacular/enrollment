@@ -8,7 +8,7 @@ describe 'user visits' do
       visit edit_student_path(student)
 
       fill_in 'student[name]', with: 'Darth Vader'
-      click_on 'Edit Student'
+      click_on 'Update Student'
 
       expect(current_path).to eq(student_path(student))
       expect(page).to have_content('Darth Vader')
