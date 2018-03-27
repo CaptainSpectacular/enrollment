@@ -12,6 +12,7 @@ describe 'user visits' do
       expect(page).to have_content(student1.name)
       expect(page).to have_content(student2.name)
       expect(page).to have_content(student3.name)
+      expect(page).to have_link('Delete', count: 3)
     end
   end
 end
