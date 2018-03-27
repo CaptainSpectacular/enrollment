@@ -8,6 +8,16 @@ class StudentsController < ApplicationController
     render locals: { student: @student}
   end
 
+  def new
+    render locals: { student: Student.new }
+  end
+
+  def create
+    Student.create(student_params)
+
+    redirect_to students_path
+  end
+
   def edit
     render locals: { student: @student }
   end
